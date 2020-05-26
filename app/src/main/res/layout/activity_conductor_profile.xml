@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ConductorProfileActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/coname"
+            android:layout_width="match_parent"
+            android:layout_height="104dp"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/user"
+            android:layout_width="match_parent"
+            android:layout_height="99dp"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/pass"
+            android:layout_width="match_parent"
+            android:layout_height="106dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/busno"
+            android:layout_width="match_parent"
+            android:layout_height="98dp"
+            android:ems="10"
+            android:hint="Bus No"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/bustype"
+            android:layout_width="match_parent"
+            android:layout_height="106dp"
+            android:ems="10"
+            android:hint="Bus Type"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/stime"
+            android:layout_width="match_parent"
+            android:layout_height="99dp"
+            android:ems="10"
+            android:hint="Starting Time"
+            android:inputType="time" />
+
+        <EditText
+            android:id="@+id/from"
+            android:layout_width="match_parent"
+            android:layout_height="84dp"
+            android:ems="10"
+            android:hint="From"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/to"
+            android:layout_width="match_parent"
+            android:layout_height="84dp"
+            android:ems="10"
+            android:hint="To"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="STOPS"
+            android:textSize="24sp"
+            android:textStyle="bold"></TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Ernamkulam"
+                android:id="@+id/ekm"/>
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Aluva"
+                android:id="@+id/aluva"/>
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Angamaly"
+                android:id="@+id/angamaly"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Chalakudy"
+                android:id="@+id/chalakudy"/>
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Thrissur"
+                android:id="@+id/tsr"/>
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Kunnamkulam"
+                android:id="@+id/kkm"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Guruvayoor"
+                android:id="@+id/gvr"/>
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Thodupuzha"
+                android:id="@+id/tdpuzha"/>
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Muvattupuzha"
+                android:id="@+id/mvtpuzha"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Perumbavoor"
+                android:id="@+id/permbavoor"/>
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Meenakshipuram"
+                android:id="@+id/mnkshipurm"/>
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Puthunagaram"
+                android:id="@+id/puthnagrm"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Vadakanchery"
+                android:id="@+id/vdknchry"/>
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Palakad"
+                android:id="@+id/pkd"/>
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Vyttila Hub"
+                android:id="@+id/vyhub"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Alappuzha"
+                android:id="@+id/alpzha"/>
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Changanassery"
+                android:id="@+id/chngnasery"/>
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Chengannur"
+                android:id="@+id/chngannur"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Alathur"
+                android:id="@+id/althur"/>
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Coimbatore"
+                android:id="@+id/cbr"/>
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="MalampuzhaDam"
+                android:id="@+id/dam"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Kongad"
+                android:id="@+id/kongd"/>
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Pathiripala"
+                android:id="@+id/pathiripala"/>
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Ottapalam"
+                android:id="@+id/ottapalm"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Shornur"
+                android:id="@+id/shrnur"/>
+            <CheckBox
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:text="Mannuthy"
+                android:id="@+id/mnthy"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Submit" />
+    </LinearLayout>
+
+
+</ScrollView>
+
+
