@@ -27,8 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="99dp"
             android:ems="10"
-            android:hint="Username"
-            android:inputType="textPersonName" />
+            android:hint="email"
+            android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/pass"
@@ -36,7 +36,7 @@
             android:layout_height="106dp"
             android:ems="10"
             android:hint="Password"
-            android:inputType="textPersonName" />
+            android:inputType="textPassword" />
 
         <EditText
             android:id="@+id/busno"
@@ -44,7 +44,7 @@
             android:layout_height="98dp"
             android:ems="10"
             android:hint="Bus No"
-            android:inputType="textPersonName" />
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/bustype"
@@ -52,7 +52,7 @@
             android:layout_height="106dp"
             android:ems="10"
             android:hint="Bus Type"
-            android:inputType="textPersonName" />
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/stime"
@@ -68,7 +68,7 @@
             android:layout_height="84dp"
             android:ems="10"
             android:hint="From"
-            android:inputType="textPersonName" />
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/to"
@@ -76,7 +76,7 @@
             android:layout_height="84dp"
             android:ems="10"
             android:hint="To"
-            android:inputType="textPersonName" />
+            android:inputType="text" />
 
         <TextView
             android:layout_width="match_parent"
