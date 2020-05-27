@@ -42,7 +42,8 @@ public class UserProfileActivity extends AppCompatActivity {
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseDatabase=FirebaseDatabase.getInstance();
 
-       DatabaseReference databaseReference=firebaseDatabase.getReference(firebaseAuth.getUid());
+       DatabaseReference databaseReference=firebaseDatabase.getReference("conductors").child(firebaseAuth.getCurrentUser().getUid());
+
 
        databaseReference.addValueEventListener(new ValueEventListener() {
            @Override
