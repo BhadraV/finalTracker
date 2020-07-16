@@ -112,7 +112,7 @@
         android:layout_marginRight="93dp"
         android:layout_marginBottom="24dp"
         android:background="#221E1E"
-        android:text="Button"
+        android:text="START"
         android:textColor="#FDFAFA"
         android:textSize="18sp"
         android:textStyle="bold"
