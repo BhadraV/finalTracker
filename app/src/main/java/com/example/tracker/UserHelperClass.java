@@ -5,12 +5,9 @@ public class UserHelperClass {
     double longitude=0;
     double latitude=0;
     int status=0;
+    String place="NotStarted";
 
-    public UserHelperClass() {
-
-    }
-
-    public UserHelperClass(String name, String username, String password, String busno, String bustype, String stime, String from, String to, String s1, String s2, String s3, String s4, String s5, String s6, double longitude, double latitude, int status) {
+    public UserHelperClass(String name, String username, String password, String busno, String bustype, String stime, String from, String to, String s1, String s2, String s3, String s4, String s5, String s6, double longitude, double latitude, int status, String place) {
         this.name = name;
         this.username = username;
         this.password = password;
@@ -28,6 +25,11 @@ public class UserHelperClass {
         this.longitude = longitude;
         this.latitude = latitude;
         this.status = status;
+        this.place = place;
+    }
+
+    public UserHelperClass() {
+
     }
 
     public String getName() {
@@ -164,5 +166,13 @@ public class UserHelperClass {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
     }
 }

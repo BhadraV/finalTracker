@@ -149,7 +149,8 @@ public class ConductorProfileActivity extends AppCompatActivity {
                                 double longi=0;
                                 double lati=0;
                                 int stats=0;
-                                UserHelperClass helperClass = new UserHelperClass(name, email, password, busNo, busType, Stime, From, To,st1,st2,st3,st4,st5,st6,longi,lati,stats);
+                                String place="NotStarted";
+                                UserHelperClass helperClass=new UserHelperClass(name, email, password, busNo,busType, Stime,  From,  To,  st1, st2, st3,  st4,  st5,  st6,  longi, lati,stats, place);
                                 FirebaseDatabase.getInstance().getReference("conductors").child(mAuth.getCurrentUser().getUid()).setValue(helperClass).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
