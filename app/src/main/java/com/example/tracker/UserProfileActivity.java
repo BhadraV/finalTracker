@@ -3,6 +3,7 @@ package com.example.tracker;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,7 +24,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
     ImageView user;
     TextView profname,profbusno,profbusype,proffrom,profto;
-    Button start;
+    Button start,finish,logout;
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
 
@@ -38,7 +40,9 @@ public class UserProfileActivity extends AppCompatActivity {
         profbusype=findViewById(R.id.bustyp);
         proffrom=findViewById(R.id.from);
         profto=findViewById(R.id.to);
-        start=findViewById(R.id.start);
+        start=findViewById(R.id.strt);
+        finish=findViewById(R.id.start);
+        logout=findViewById(R.id.logout);
 
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseDatabase=FirebaseDatabase.getInstance();
@@ -68,7 +72,29 @@ public class UserProfileActivity extends AppCompatActivity {
 start.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-
+        int num=1;
+        FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+        String userid=user.getUid();
+        DatabaseReference ref=FirebaseDatabase.getInstance().getReference().child("conductors").child(userid);
+        ref.child("status").setValue(num);
+    }
+});
+logout.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent logot=new Intent(UserProfileActivity.this,MainActivity.class);
+        startActivity(logot);
+    }
+});
+finish.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        int num=0;
+        FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+        String userid=user.getUid();
+        DatabaseReference ref=FirebaseDatabase.getInstance().getReference().child("conductors").child(userid);
+        ref.child("status").setValue(num);
+        
     }
 });
     }
