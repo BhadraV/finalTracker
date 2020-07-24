@@ -1,11 +1,13 @@
 package com.example.tracker;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.app.Service;
@@ -42,7 +44,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.io.IOException;
 import java.util.List;
 
-public class testUser extends AppCompatActivity {
+import pub.devrel.easypermissions.AfterPermissionGranted;
+import pub.devrel.easypermissions.AppSettingsDialog;
+import pub.devrel.easypermissions.EasyPermissions;
+
+public class testUser extends AppCompatActivity implements EasyPermissions.PermissionCallbacks{
 
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
@@ -59,6 +65,13 @@ public class testUser extends AppCompatActivity {
     Location loc;
     double la, lo;
     DatabaseReference databaseReference;
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        EasyPermissions.onRequestPermissionsResult(requestCode,permissions,grantResults,this);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,50 +142,99 @@ public class testUser extends AppCompatActivity {
             }
         });
         start.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("MissingPermission")
             @Override
             public void onClick(View v) {
                 Log.d("str", "wrkng");
-                if (ActivityCompat.checkSelfPermission(testUser.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(testUser.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    // TODO: Consider calling
-                    //    ActivityCompat#requestPermissions
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
-                    return;
-                }
-                fusedLocationProviderClient.getLastLocation().addOnSuccessListener(testUser.this, new OnSuccessListener<Location>() {
-                    @Override
-                    public void onSuccess(Location location) {
-                        if (location != null) {
 
+                String[] perms = {Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION};
+                if (EasyPermissions.hasPermissions(testUser.this,perms)){
+                    Toast.makeText(testUser.this,"Accessing Location",Toast.LENGTH_SHORT).show();
+
+                    fusedLocationProviderClient.getLastLocation().addOnSuccessListener(testUser.this, new OnSuccessListener<Location>() {
+                        @Override
+                        public void onSuccess(Location location) {
+                            if (location != null) {
+                                la=location.getLatitude();
+                                lo=location.getLongitude();
+                                Log.d("WASABI_WORKING1", "onClick: " + la + lo);
+                                String city ;
+
+
+                                try {
+
+                                    Geocoder geocoder = new Geocoder(testUser.this);
+                                    List<Address> addresses = null;
+                                    addresses = geocoder.getFromLocation(la, lo, 1);
+                                    city = addresses.get(0).getLocality();
+                                    Toast.makeText(testUser.this,city,Toast.LENGTH_SHORT).show();
+                                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                    String userid = user.getUid();
+                                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("conductors").child(userid);
+                                    ref.child("status").setValue(1);
+                                    ref.child("latitude").setValue(la);
+                                    ref.child("longitude").setValue(lo);
+                                    ref.child("place").setValue(city);
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                    Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_SHORT).show();
+                                }
+
+
+
+
+
+
+                            }
                         }
-                    }
-                });
-                int num = 1;
-                double lat, lon;
-                lat = la;
-                lon = lo;
-                String city;
-                try {
+                    });
 
-                    Geocoder geocoder = new Geocoder(testUser.this);
-                    List<Address> addresses = null;
-                    addresses = geocoder.getFromLocation(lat, lo, 1);
-                    city = addresses.get(0).getLocality();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_SHORT).show();
+
+                }else {
+                    EasyPermissions.requestPermissions(testUser.this,"Location permission is required",123,
+                            perms);
                 }
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                String userid = user.getUid();
-                DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("conductors").child(userid);
-                ref.child("status").setValue(num);
-                ref.child("latitude").setValue(lat);
-                ref.child("longitude").setValue(lon);
-                ref.child("place").setValue(num);
+
+
+
+//                if (ActivityCompat.checkSelfPermission(testUser.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(testUser.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//                    // TODO: Consider calling
+//                    //    ActivityCompat#requestPermissions
+//                    // here to request the missing permissions, and then overriding
+//                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+//                    //                                          int[] grantResults)
+//                    // to handle the case where the user grants the permission. See the documentation
+//                    // for ActivityCompat#requestPermissions for more details.
+//                    return;
+//                }
+
+                Log.d("WASABI_WORKING2", "onClick: " + la + lo);
+
+
+
+//
             }
         });
+    }
+
+    @Override
+    public void onPermissionsGranted(int requestCode, @NonNull List<String> perms) {
+
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
+        if (EasyPermissions.somePermissionPermanentlyDenied(this,perms)){
+            new AppSettingsDialog.Builder(this).build().show();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == AppSettingsDialog.DEFAULT_SETTINGS_REQ_CODE){
+
+        }
     }
 }
