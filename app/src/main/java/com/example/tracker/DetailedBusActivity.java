@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -19,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 public class DetailedBusActivity extends AppCompatActivity {
 
     DatabaseReference databaseReference;
-    String str=getIntent().getExtras().getString("busno");
+
     TextView crnt,s1,s2,s3,s4,s5,s6;
     Button map;
 
@@ -27,6 +29,8 @@ public class DetailedBusActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed_bus);
+
+        String str=getIntent().getExtras().getString("busno");
 
         crnt=findViewById(R.id.current);
         s1=findViewById(R.id.st1);
@@ -41,17 +45,19 @@ public class DetailedBusActivity extends AppCompatActivity {
 
         databaseReference= FirebaseDatabase.getInstance().getReference().child("conductors");
         Query query=databaseReference.orderByChild("busno").equalTo(str);
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
 
-                   Help user=datasnapshot.getValue(Help.class);
-                    s1.setText("stop 1: "+user.getS1());
-                    s2.setText("stop 2: "+user.getS2());
-                    s3.setText("stop 3: "+user.getS3());
-                    s4.setText("stop 4: "+user.getS4());
-                    s5.setText("stop 1: "+user.getS5());
-                    s6.setText("stop 1: "+user.getS6());
+                 Help user=datasnapshot.getValue(Help.class);
+
+
+                    s1.setText("Stop 1: "+user.getS1());
+                    s2.setText("Stop 2: "+user.getS2());
+                    s3.setText("Stop 3: "+user.getS3());
+                    s4.setText("Stop 4: "+user.getS4());
+                    s5.setText("Stop 5: "+user.getS5());
+                    s6.setText("Stop 6: "+user.getS6());
                     crnt.setText("Current location: "+user.getPlace());
 
 
@@ -60,7 +66,7 @@ public class DetailedBusActivity extends AppCompatActivity {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(DetailedBusActivity.this,"not accessible",Toast.LENGTH_LONG).show();
             }
         });
 
