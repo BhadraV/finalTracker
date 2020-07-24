@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent" xmlns:ads="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent" android:layout_marginBottom="6dp" android:layout_marginTop="6dp" android:background="@android:color/white" android:orientation="vertical">
+
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent" android:layout_marginTop="6dp" android:orientation="horizontal">
+
+    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_marginLeft="12dp" android:id="@+id/starting_time" android:textColor="@android:color/black" android:textStyle="bold"/>
+
+    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_marginLeft="12dp" android:id="@+id/bustypee" android:textColor="@android:color/black" android:textStyle="bold" android:layout_toRightOf="@+id/starting_time"/>
+
+</LinearLayout>
+
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent" android:orientation="vertical" android:layout_margin="12dp">
+
+    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_marginLeft="12dp" android:id="@+id/cplace" android:textColor="#359839" android:textStyle="bold" android:layout_alignParentLeft="true"/>
+
+
+
+
+</LinearLayout>
+
+</LinearLayout>
+
+</LinearLayout>

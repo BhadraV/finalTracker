@@ -8,15 +8,7 @@
     <RelativeLayout android:layout_height="0dp" android:layout_width="match_parent" android:background="#ffe2e2e2" android:layout_weight="1">
 
 
-        <ListView
-            android:id="@+id/listServices"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
-            android:layout_marginBottom="12dp"
-            android:background="@android:color/transparent"
-            android:divider="@null" />
+        <ListView android:layout_height="fill_parent" android:layout_width="fill_parent"  android:layout_alignParentRight="true" android:layout_alignParentTop="true"  android:id="@+id/listView" android:divider="@android:color/transparent" android:dividerHeight="10dp" android:listSelector="@drawable/listview_selector"/>
 
         <RelativeLayout android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/noData" android:layout_centerInParent="true" android:visibility="gone">
 

@@ -2,7 +2,7 @@ package com.example.tracker;
 
 public class UserClass {
 
-    String name,busno,bustype,from,to;
+    public String name, busno, bustype, from, to;
 
     public UserClass() {
     }

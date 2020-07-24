@@ -56,7 +56,7 @@ public class ConductorLoginActivity extends AppCompatActivity {
                                 Toast.makeText(ConductorLoginActivity.this,"Login Error,Please Try Again!!!",Toast.LENGTH_LONG).show();
                             }
                             else {
-                                Intent intlogin=new Intent(ConductorLoginActivity.this,UserProfileActivity.class);
+                                Intent intlogin=new Intent(ConductorLoginActivity.this,testUser.class);
                                 startActivity(intlogin);
                             }
                         }
