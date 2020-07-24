@@ -51,22 +51,24 @@ public class FindBusActivity extends AppCompatActivity {
                 final String total=busfrom+busto;
 
                 databaseReference= FirebaseDatabase.getInstance().getReference().child("conductors");
-                Query query=databaseReference.orderByChild("from_to").equalTo(total);
+                final Query query=databaseReference.orderByChild("from_to").equalTo(total);
+
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for (DataSnapshot snapshot:dataSnapshot.getChildren()){
-                                  Intent intnt=new Intent(FindBusActivity.this,BusDetailsActivity.class);
-                                  startActivity(intnt);
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            Intent intnt = new Intent(FindBusActivity.this, BusDetailsActivity.class);
+                            intnt.putExtra("arg",total);
+                            startActivity(intnt);
                         }
-                    }
+                    };
 
                     @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
+                    };
+
                 });
-
 
             }
         });

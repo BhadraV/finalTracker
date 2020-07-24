@@ -1,16 +1,13 @@
 package com.example.tracker;
 
-public class User {
-    public String bustype, stime, place, busno, s1, s2, s3, s4, s5, s6;
+public class Help {
+    public String place, s1, s2, s3, s4, s5, s6;
 
-    public User() {
+    public Help() {
     }
 
-    public User(String bustype, String stime, String place, String busno, String s1, String s2, String s3, String s4, String s5, String s6) {
-        this.bustype = bustype;
-        this.stime = stime;
+    public Help(String place, String s1, String s2, String s3, String s4, String s5, String s6) {
         this.place = place;
-        this.busno = busno;
         this.s1 = s1;
         this.s2 = s2;
         this.s3 = s3;
@@ -19,36 +16,12 @@ public class User {
         this.s6 = s6;
     }
 
-    public String getBustype() {
-        return bustype;
-    }
-
-    public void setBustype(String bustype) {
-        this.bustype = bustype;
-    }
-
-    public String getStime() {
-        return stime;
-    }
-
-    public void setStime(String stime) {
-        this.stime = stime;
-    }
-
     public String getPlace() {
         return place;
     }
 
     public void setPlace(String place) {
         this.place = place;
-    }
-
-    public String getBusno() {
-        return busno;
-    }
-
-    public void setBusno(String busno) {
-        this.busno = busno;
     }
 
     public String getS1() {
