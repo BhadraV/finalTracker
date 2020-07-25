@@ -27,6 +27,7 @@ public class DetailedBusActivity extends AppCompatActivity {
     TextView crnt,s1,s2,s3,s4,s5,s6;
     Button map;
     Double lat,lon;
+    String from,to;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +68,8 @@ public class DetailedBusActivity extends AppCompatActivity {
                     crnt.setText("Current location: " + user.getPlace());
                     lat=user.getLatitude();
                     lon=user.getLongitude();
+                    from=user.getFrom();
+                    to=user.getTo();
 
                 }
 
@@ -85,6 +88,8 @@ public class DetailedBusActivity extends AppCompatActivity {
                 Intent intent=new Intent(DetailedBusActivity.this,MapActivity.class);
                 intent.putExtra("latitude",lat);
                 intent.putExtra("longitude",lon);
+                intent.putExtra("from",from);
+                intent.putExtra("to",to);
                 startActivity(intent);
             }
         });

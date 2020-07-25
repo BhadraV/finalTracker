@@ -5,8 +5,11 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.google.android.gms.common.api.Api;
@@ -21,33 +24,34 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
-public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
-
-    GoogleMap map;
-    FusedLocationProviderClient client;
-    SupportMapFragment supportMapFragment;
-    Double la,lo;
+public class MapActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+
+        String from=getIntent().getExtras().getString("from");
+        String to=getIntent().getExtras().getString("to");
         Double lati=getIntent().getExtras().getDouble("latitude");
         Double longi=getIntent().getExtras().getDouble("longitude");
-        la=lati;
-        lo=longi;
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapp);
-        mapFragment.getMapAsync(this);
 
-    }
+        try{
+            Uri uri=Uri.parse("https://www.google.co.in/maps/dir/"+ from + "/"+ to);
+            Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+            intent.setPackage("com.google.android.apps.maps");
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
 
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-map=googleMap;
-        LatLng current=new LatLng(la,lo);
-        map.addMarker(new MarkerOptions().position(current).title("current"));
-        map.moveCamera(CameraUpdateFactory.newLatLng(current));
 
+
+
+        }catch(ActivityNotFoundException e){
+            Uri uri=Uri.parse("https://play.google.com/store/apps/details?=com.google.an-droid.apps.maps");
+            Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
     }
 }
