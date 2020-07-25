@@ -30,7 +30,7 @@ public class DetailedBusActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed_bus);
 
-        String str=getIntent().getExtras().getString("busno");
+        final String str=getIntent().getExtras().getString("busno");
 
         crnt=findViewById(R.id.current);
         s1=findViewById(R.id.st1);
@@ -44,13 +44,13 @@ public class DetailedBusActivity extends AppCompatActivity {
 
 
         databaseReference= FirebaseDatabase.getInstance().getReference().child("conductors");
-        Query query=databaseReference.orderByChild("busno").equalTo(str);
+        final Query query=databaseReference.orderByChild("busno").equalTo(str);
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
 
                  Help user=datasnapshot.getValue(Help.class);
-
+Log.d("h","hlo"+str);
 
                     s1.setText("Stop 1: "+user.getS1());
                     s2.setText("Stop 2: "+user.getS2());

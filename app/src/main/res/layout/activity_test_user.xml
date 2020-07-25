@@ -20,9 +20,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/start" />
-
     <Button
-        android:id="@+id/map"
+        android:id="@+id/strt"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
@@ -49,8 +48,8 @@
         android:layout_marginEnd="81dp"
         android:layout_marginRight="81dp"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/st1"
-        app:layout_constraintEnd_toEndOf="@+id/st1"
+        app:layout_constraintBottom_toTopOf="@+id/name"
+        app:layout_constraintEnd_toEndOf="@+id/name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/user" />
@@ -101,7 +100,7 @@
         app:layout_constraintTop_toBottomOf="@+id/bustyp" />
 
     <TextView
-        android:id="@+id/st1"
+        android:id="@+id/name"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="27dp"
@@ -113,7 +112,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <TextView
-        android:id="@+id/st2"
+        android:id="@+id/busnum"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="22dp"
@@ -126,7 +125,7 @@
         app:layout_constraintBottom_toTopOf="@+id/bustyp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/st1" />
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <Button
         android:id="@+id/start"

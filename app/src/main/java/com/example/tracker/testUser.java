@@ -76,7 +76,7 @@ public class testUser extends AppCompatActivity implements EasyPermissions.Permi
         databaseReference = firebaseDatabase.getReference("conductors").child(firebaseAuth.getCurrentUser().getUid());
         //DatabaseReference databaseReference = firebaseDatabase.getReference("conductors").child("Yq7zveh9MkdV21976IfLexkpZid2");
         user = (ImageView) findViewById(R.id.imageView3);
-        profname = findViewById(R.id.st1);
+        profname = findViewById(R.id.name);
         profbusno = findViewById(R.id.busnum);
         profbusype = findViewById(R.id.bustyp);
         proffrom = findViewById(R.id.from);
