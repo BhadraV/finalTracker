@@ -35,10 +35,11 @@ public class MapActivity extends AppCompatActivity{
         String to=getIntent().getExtras().getString("to");
         Double lati=getIntent().getExtras().getDouble("latitude");
         Double longi=getIntent().getExtras().getDouble("longitude");
+        String place=getIntent().getExtras().getString("place");
 
 
         try{
-            Uri uri=Uri.parse("https://www.google.co.in/maps/dir/"+ from + "/"+ to);
+            Uri uri=Uri.parse("https://www.google.co.in/maps/dir/"+ from + "/"+ place + "/" + to  );
             Intent intent=new Intent(Intent.ACTION_VIEW,uri);
             intent.setPackage("com.google.android.apps.maps");
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
