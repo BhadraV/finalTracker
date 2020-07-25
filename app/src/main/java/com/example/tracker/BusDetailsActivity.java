@@ -56,27 +56,27 @@ String passedarg=getIntent().getExtras().getString("arg");
                 TextView typ=v.findViewById(R.id.bustypee);
                 TextView cuplace=v.findViewById(R.id.cplace);
                 DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference();
-                User user=(User)model;
+                final User user=(User)model;
                 stime.setText("Starting time: "+user.getStime().toString());
-                typ.setText("Type of Bus"+user.getBustype().toString());
+                typ.setText("Type of Bus: "+user.getBustype().toString());
                 cuplace.setText("Current Location: "+user.getPlace().toString());
-                no=user.getBusno().toString();
+
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    public void onItemClick(AdapterView<?> av, View view, int i, long l) {
+                        no=user.getBusno().toString();
+                        Intent intent=new Intent(BusDetailsActivity.this,DetailedBusActivity.class);
+                        intent.putExtra("busno",no);
+                        startActivity(intent);
+                        Toast.makeText(BusDetailsActivity.this, "myPos "+i, Toast.LENGTH_LONG).show();
+                    }
+                });
+
 
 
 
             }
         };
         listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> av, View view, int i, long l) {
-
-                Intent intent=new Intent(BusDetailsActivity.this,DetailedBusActivity.class);
-                intent.putExtra("busno",no);
-
-                startActivity(intent);
-                Toast.makeText(BusDetailsActivity.this, "myPos "+i, Toast.LENGTH_LONG).show();
-            }
-        });
 
     }
 

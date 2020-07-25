@@ -3,8 +3,10 @@ package com.example.tracker;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,7 +47,7 @@ public class DetailedBusActivity extends AppCompatActivity {
 
         databaseReference= FirebaseDatabase.getInstance().getReference().child("conductors");
         final Query query=databaseReference.orderByChild("busno").equalTo(str);
-        query.addValueEventListener(new ValueEventListener() {
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
 
@@ -67,6 +69,13 @@ Log.d("h","hlo"+str);
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(DetailedBusActivity.this,"not accessible",Toast.LENGTH_LONG).show();
+            }
+        });
+        map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(DetailedBusActivity.this,MapActivity.class);
+                startActivity(intent);
             }
         });
 
