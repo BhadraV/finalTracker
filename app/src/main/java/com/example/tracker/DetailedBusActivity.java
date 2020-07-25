@@ -26,13 +26,14 @@ public class DetailedBusActivity extends AppCompatActivity {
 
     TextView crnt,s1,s2,s3,s4,s5,s6;
     Button map;
+    Double lat,lon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed_bus);
 
-        final String str=getIntent().getExtras().getString("busno");
+        final String str=getIntent().getExtras().getString("busno","5");
 
         crnt=findViewById(R.id.current);
         s1=findViewById(R.id.st1);
@@ -51,20 +52,27 @@ public class DetailedBusActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
 
-                 Help user=datasnapshot.getValue(Help.class);
-Log.d("h","hlo"+str);
-
-                    s1.setText("Stop 1: "+user.getS1());
-                    s2.setText("Stop 2: "+user.getS2());
-                    s3.setText("Stop 3: "+user.getS3());
-                    s4.setText("Stop 4: "+user.getS4());
-                    s5.setText("Stop 5: "+user.getS5());
-                    s6.setText("Stop 6: "+user.getS6());
-                    crnt.setText("Current location: "+user.getPlace());
+                for (DataSnapshot snapshot : datasnapshot.getChildren()) {
+                    DetailsHelper user = snapshot.getValue(DetailsHelper.class);
 
 
+                    Log.d("h", "hlo" + str);
 
-                
+                    s1.setText("Stop 1: " + user.getS1());
+                    s2.setText("Stop 2: " + user.getS2());
+                    s3.setText("Stop 3: " + user.getS3());
+                    s4.setText("Stop 4: " + user.getS4());
+                    s5.setText("Stop 5: " + user.getS5());
+                    s6.setText("Stop 6: " + user.getS6());
+                    crnt.setText("Current location: " + user.getPlace());
+                    lat=user.getLatitude();
+                    lon=user.getLongitude();
+
+                }
+
+
+
+
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -75,6 +83,8 @@ Log.d("h","hlo"+str);
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(DetailedBusActivity.this,MapActivity.class);
+                intent.putExtra("latitude",lat);
+                intent.putExtra("longitude",lon);
                 startActivity(intent);
             }
         });

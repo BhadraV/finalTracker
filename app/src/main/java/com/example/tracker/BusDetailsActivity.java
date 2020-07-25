@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -44,7 +45,7 @@ public class BusDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bus_details);
 
-String passedarg=getIntent().getExtras().getString("arg");
+        String passedarg=getIntent().getExtras().getString("arg");
 
         listView = (ListView) findViewById(R.id.listView);
         Query query=FirebaseDatabase.getInstance().getReference().child("conductors").orderByChild("from_to").equalTo(passedarg);
@@ -55,21 +56,13 @@ String passedarg=getIntent().getExtras().getString("arg");
                 TextView stime=v.findViewById(R.id.starting_time);
                 TextView typ=v.findViewById(R.id.bustypee);
                 TextView cuplace=v.findViewById(R.id.cplace);
-                DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference();
-                final User user=(User)model;
+//                DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference();
+                User user=(User)model;
                 stime.setText("Starting time: "+user.getStime().toString());
                 typ.setText("Type of Bus: "+user.getBustype().toString());
                 cuplace.setText("Current Location: "+user.getPlace().toString());
 
-                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    public void onItemClick(AdapterView<?> av, View view, int i, long l) {
-                        no=user.getBusno().toString();
-                        Intent intent=new Intent(BusDetailsActivity.this,DetailedBusActivity.class);
-                        intent.putExtra("busno",no);
-                        startActivity(intent);
-                        Toast.makeText(BusDetailsActivity.this, "myPos "+i, Toast.LENGTH_LONG).show();
-                    }
-                });
+
 
 
 
@@ -78,7 +71,22 @@ String passedarg=getIntent().getExtras().getString("arg");
         };
         listView.setAdapter(adapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            public void onItemClick(AdapterView<?> av, View view, int i, long l) {
+
+                User user=(User)adapter.getItem(i);
+                Log.e("WASABI :", "onItemClick: "+user.busno );
+                Intent intent=new Intent(BusDetailsActivity.this,DetailedBusActivity.class);
+                intent.putExtra("busno",user.busno);
+                startActivity(intent);
+//                Toast.makeText(BusDetailsActivity.this, "myPos "+i, Toast.LENGTH_LONG).show();
+            }
+        });
+
     }
+
+
 
     @Override
     protected void onStart() {
