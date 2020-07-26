@@ -17,7 +17,8 @@
         <EditText
             android:id="@+id/coname"
             android:layout_width="match_parent"
-            android:layout_height="104dp"
+            android:layout_height="94dp"
+            android:background="@drawable/custom"
             android:ems="10"
             android:hint="Name"
             android:inputType="textPersonName" />
@@ -25,7 +26,8 @@
         <EditText
             android:id="@+id/user"
             android:layout_width="match_parent"
-            android:layout_height="99dp"
+            android:layout_height="85dp"
+            android:background="@drawable/custom"
             android:ems="10"
             android:hint="email"
             android:inputType="textEmailAddress" />
@@ -36,6 +38,7 @@
             android:layout_height="106dp"
             android:ems="10"
             android:hint="Password"
+            android:background="@drawable/custom"
             android:inputType="textPassword" />
 
         <EditText
@@ -44,6 +47,7 @@
             android:layout_height="98dp"
             android:ems="10"
             android:hint="Bus No"
+            android:background="@drawable/custom"
             android:inputType="text" />
 
         <EditText
@@ -52,6 +56,7 @@
             android:layout_height="106dp"
             android:ems="10"
             android:hint="Bus Type"
+            android:background="@drawable/custom"
             android:inputType="text" />
 
         <EditText
@@ -60,6 +65,7 @@
             android:layout_height="99dp"
             android:ems="10"
             android:hint="Starting Time"
+            android:background="@drawable/custom"
             android:inputType="time" />
 
         <EditText
@@ -68,6 +74,7 @@
             android:layout_height="84dp"
             android:ems="10"
             android:hint="From"
+            android:background="@drawable/custom"
             android:inputType="text" />
 
         <EditText
@@ -76,6 +83,7 @@
             android:layout_height="84dp"
             android:ems="10"
             android:hint="To"
+            android:background="@drawable/custom"
             android:inputType="text" />
 
         <TextView
@@ -92,6 +100,7 @@
             android:layout_marginStart="3dp"
             android:layout_marginLeft="3dp"
             android:layout_marginBottom="27dp"
+            android:background="@drawable/custom"
             android:hint="Stop1"
             android:textSize="24sp"
             android:completionThreshold="1"
@@ -109,6 +118,7 @@
             android:hint="Stop2"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/textView2"
+            android:background="@drawable/custom"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -121,6 +131,7 @@
             android:layout_marginBottom="27dp"
             android:hint="Stop3"
             android:textSize="24sp"
+            android:background="@drawable/custom"
             app:layout_constraintBottom_toTopOf="@+id/textView2"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -134,6 +145,7 @@
             android:layout_marginBottom="27dp"
             android:hint="Stop4"
             android:textSize="24sp"
+            android:background="@drawable/custom"
             app:layout_constraintBottom_toTopOf="@+id/textView2"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -145,6 +157,7 @@
             android:layout_marginStart="3dp"
             android:layout_marginLeft="3dp"
             android:layout_marginBottom="27dp"
+            android:background="@drawable/custom"
             android:hint="Stop5"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/textView2"
@@ -159,6 +172,7 @@
             android:layout_marginBottom="27dp"
             android:hint="Stop6"
             android:textSize="24sp"
+            android:background="@drawable/custom"
             app:layout_constraintBottom_toTopOf="@+id/textView2"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -168,6 +182,7 @@
             android:id="@+id/submit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/buttonsignin"
             android:text="Submit" />
     </LinearLayout>
 

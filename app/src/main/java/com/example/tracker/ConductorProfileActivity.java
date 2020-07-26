@@ -40,7 +40,7 @@ public class ConductorProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conductor_profile);
-
+setTitle("Conductor SignUp");
         cname = findViewById(R.id.coname);
         user = findViewById(R.id.user);
         pass = findViewById(R.id.pass);

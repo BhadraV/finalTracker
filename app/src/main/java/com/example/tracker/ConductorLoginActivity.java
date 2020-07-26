@@ -26,6 +26,7 @@ public class ConductorLoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conductor_login);
+        setTitle("Conductor SignIn");
 
         firebaseauth=FirebaseAuth.getInstance();
         user=findViewById(R.id.user);

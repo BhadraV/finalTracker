@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -21,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 public class FindBusActivity extends AppCompatActivity {
 
     AutoCompleteTextView from,to;
-    ImageButton find;
+    Button find;
     String places[]={"Ernamkulam","Aluva","Angamaly","Chalakudy","Thrissur","Kunnamkulam","Guruvayur","Thodupuzha","Muvattupuzha","Perumbavoor"
             ,"Meenakshipuram","Puthunagaram","Vadakkanchery","Palakad","VyttilaHub","Alappuzha","Changanassery","Chengannur","Alathur","Coimbatore","MalampuzhaDam"
             ,"Kongad","Pathiripala","Ottapalam","Shornur","Mannuthy"};
@@ -33,6 +34,7 @@ public class FindBusActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_bus);
+        setTitle("Find Bus");
 
         from=findViewById(R.id.busfrom);
         to=findViewById(R.id.busto);
@@ -46,6 +48,7 @@ public class FindBusActivity extends AppCompatActivity {
         find.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 final String busfrom=from.getText().toString();
                 final String busto=to.getText().toString();

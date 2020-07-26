@@ -67,7 +67,7 @@ public class testUser extends AppCompatActivity implements EasyPermissions.Permi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_user);
 
-
+setTitle("Conductor Profile");
         progressDialog = new ProgressDialog(testUser.this);
         progressDialog.setMessage("uploading");
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(testUser.this);

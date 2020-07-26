@@ -33,6 +33,7 @@ public class DetailedBusActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed_bus);
+        setTitle("Bus Details");
 
         final String str=getIntent().getExtras().getString("busno","5");
 

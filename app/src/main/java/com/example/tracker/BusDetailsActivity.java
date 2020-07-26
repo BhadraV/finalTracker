@@ -44,6 +44,7 @@ public class BusDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bus_details);
+        setTitle("List of Buses");
 
         String passedarg=getIntent().getExtras().getString("arg");
 
