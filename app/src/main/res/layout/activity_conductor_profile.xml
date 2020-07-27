@@ -8,183 +8,191 @@
     tools:context=".ConductorProfileActivity">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+  <androidx.cardview.widget.CardView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="10dp"
+      app:cardCornerRadius="10dp"
+      app:cardElevation="20dp">
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          android:padding="20dp">
 
 
-        <EditText
-            android:id="@+id/coname"
-            android:layout_width="match_parent"
-            android:layout_height="94dp"
-            android:background="@drawable/custom"
-            android:ems="10"
-            android:hint="Name"
-            android:inputType="textPersonName" />
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:text="Profile"
+              android:textColor="@color/colorPrimary"
+              android:textSize="24sp"
+              android:textStyle="bold"
+              android:layout_margin="30dp"
+              android:gravity="center">
 
-        <EditText
-            android:id="@+id/user"
-            android:layout_width="match_parent"
-            android:layout_height="85dp"
-            android:background="@drawable/custom"
-            android:ems="10"
-            android:hint="email"
-            android:inputType="textEmailAddress" />
+          </TextView>
 
-        <EditText
-            android:id="@+id/pass"
-            android:layout_width="match_parent"
-            android:layout_height="106dp"
-            android:ems="10"
-            android:hint="Password"
-            android:background="@drawable/custom"
-            android:inputType="textPassword" />
+          <com.google.android.material.textfield.TextInputLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/busno"
-            android:layout_width="match_parent"
-            android:layout_height="98dp"
-            android:ems="10"
-            android:hint="Bus No"
-            android:background="@drawable/custom"
-            android:inputType="text" />
+              <EditText
+                  android:id="@+id/coname"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:ems="10"
+                  android:hint="Name"
+                  android:inputType="textPersonName" />
+          </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/bustype"
-            android:layout_width="match_parent"
-            android:layout_height="106dp"
-            android:ems="10"
-            android:hint="Bus Type"
-            android:background="@drawable/custom"
-            android:inputType="text" />
+          <com.google.android.material.textfield.TextInputLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/stime"
-            android:layout_width="match_parent"
-            android:layout_height="99dp"
-            android:ems="10"
-            android:hint="Starting Time"
-            android:background="@drawable/custom"
-            android:inputType="time" />
-
-        <EditText
-            android:id="@+id/from"
-            android:layout_width="match_parent"
-            android:layout_height="84dp"
-            android:ems="10"
-            android:hint="From"
-            android:background="@drawable/custom"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/to"
-            android:layout_width="match_parent"
-            android:layout_height="84dp"
-            android:ems="10"
-            android:hint="To"
-            android:background="@drawable/custom"
-            android:inputType="text" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="STOPS"
-            android:textSize="24sp"
-            android:textStyle="bold"></TextView>
-
-        <AutoCompleteTextView
-            android:id="@+id/s1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="3dp"
-            android:layout_marginLeft="3dp"
-            android:layout_marginBottom="27dp"
-            android:background="@drawable/custom"
-            android:hint="Stop1"
-            android:textSize="24sp"
-            android:completionThreshold="1"
-            app:layout_constraintBottom_toTopOf="@+id/textView2"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-        <AutoCompleteTextView
-            android:id="@+id/s2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="3dp"
-            android:layout_marginLeft="3dp"
-            android:layout_marginBottom="27dp"
-            android:hint="Stop2"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView2"
-            android:background="@drawable/custom"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-        <AutoCompleteTextView
-            android:id="@+id/s3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="3dp"
-            android:layout_marginLeft="3dp"
-            android:layout_marginBottom="27dp"
-            android:hint="Stop3"
-            android:textSize="24sp"
-            android:background="@drawable/custom"
-            app:layout_constraintBottom_toTopOf="@+id/textView2"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-        <AutoCompleteTextView
-            android:id="@+id/s4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="3dp"
-            android:layout_marginLeft="3dp"
-            android:layout_marginBottom="27dp"
-            android:hint="Stop4"
-            android:textSize="24sp"
-            android:background="@drawable/custom"
-            app:layout_constraintBottom_toTopOf="@+id/textView2"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-        <AutoCompleteTextView
-            android:id="@+id/s5"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="3dp"
-            android:layout_marginLeft="3dp"
-            android:layout_marginBottom="27dp"
-            android:background="@drawable/custom"
-            android:hint="Stop5"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView2"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-        <AutoCompleteTextView
-            android:id="@+id/s6"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="3dp"
-            android:layout_marginLeft="3dp"
-            android:layout_marginBottom="27dp"
-            android:hint="Stop6"
-            android:textSize="24sp"
-            android:background="@drawable/custom"
-            app:layout_constraintBottom_toTopOf="@+id/textView2"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+              <EditText
+                  android:id="@+id/user"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:ems="10"
+                  android:hint="email"
+                  android:inputType="textEmailAddress" />
 
 
-        <Button
-            android:id="@+id/submit"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/buttonsignin"
-            android:text="Submit" />
-    </LinearLayout>
+          </com.google.android.material.textfield.TextInputLayout>
+          <com.google.android.material.textfield.TextInputLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+              <EditText
+                  android:id="@+id/pass"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:ems="10"
+                  android:hint="Password"
+                  android:inputType="textPassword" />
+          </com.google.android.material.textfield.TextInputLayout>
+          <com.google.android.material.textfield.TextInputLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+              <EditText
+                  android:id="@+id/busno"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:ems="10"
+                  android:hint="Bus No"
+                  android:inputType="text" />
+          </com.google.android.material.textfield.TextInputLayout>
+          <EditText
+              android:id="@+id/bustype"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:ems="10"
+              android:hint="Bus Type"
+              android:inputType="text" />
+          <com.google.android.material.textfield.TextInputLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+              <EditText
+                  android:id="@+id/stime"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:ems="10"
+                  android:hint="Starting Time"
+                  android:inputType="time" />
+          </com.google.android.material.textfield.TextInputLayout>
+          <com.google.android.material.textfield.TextInputLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+              <EditText
+                  android:id="@+id/from"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:ems="10"
+                  android:hint="From"
+                  android:inputType="text" />
+          </com.google.android.material.textfield.TextInputLayout>
+          <com.google.android.material.textfield.TextInputLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+              <EditText
+                  android:id="@+id/to"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:ems="10"
+                  android:hint="To"
+                  android:inputType="text" />
+          </com.google.android.material.textfield.TextInputLayout>
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:text="STOPS"
+              android:textColor="@color/colorPrimary"
+              android:textSize="24sp"
+              android:textStyle="bold"
+              android:layout_margin="30dp"
+              android:gravity="center">
+
+          </TextView>
+
+          <AutoCompleteTextView
+              android:id="@+id/s1"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:completionThreshold="1"
+              android:hint="Stop1"
+              android:layout_marginTop="10dp"
+              android:textSize="24sp" />
+
+          <AutoCompleteTextView
+              android:id="@+id/s2"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:hint="Stop2"
+              android:textSize="24sp"
+              android:layout_marginTop="10dp" />
+
+          <AutoCompleteTextView
+              android:id="@+id/s3"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:hint="Stop3"
+              android:layout_marginTop="10dp"
+              android:textSize="24sp" />
+
+          <AutoCompleteTextView
+              android:id="@+id/s4"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:hint="Stop4"
+              android:textSize="24sp"
+              android:layout_marginTop="10dp"/>
+
+          <AutoCompleteTextView
+              android:id="@+id/s5"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:hint="Stop5"
+              android:textSize="24sp"
+              android:layout_marginTop="10dp"/>
+
+          <AutoCompleteTextView
+              android:id="@+id/s6"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:hint="Stop6"
+              android:textSize="24sp"
+              android:layout_marginTop="10dp"/>
+
+
+          <Button
+              android:id="@+id/submit"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/buttonsignin"
+              android:textColor="@android:color/white"
+              android:text="Submit" />
+      </LinearLayout>
+  </androidx.cardview.widget.CardView>
 
 
 </ScrollView>

@@ -14,13 +14,15 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-       <activity android:name=".Splash" android:theme="@style/SplashScreen">
-           <intent-filter>
-               <action android:name="android.intent.action.MAIN" />
+        <activity
+            android:name=".Splash"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-               <category android:name="android.intent.category.LAUNCHER" />
-           </intent-filter>
-       </activity>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".MapActivity" />
 
         <meta-data
@@ -33,7 +35,9 @@
         <activity android:name=".ConductorProfileActivity" />
         <activity android:name=".FindBusActivity" />
         <activity android:name=".ConductorLoginActivity" />
-        <activity android:name=".MainActivity" android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme">
 
         </activity>
 
